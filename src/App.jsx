@@ -6,25 +6,32 @@ import { CustomerServiceModPage } from "./CustomerServiceModPage";
 import { CustomerServiceDelPage } from "./CustomerServiceDelPage";
 import './App.css';
 
-function App() {
+export const App=()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink to={'/'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
+                <span className="nav-link">Hívások listája</span>
+              </NavLink>
+              </li>
+              <li className="nav-item">
+              <NavLink to={'/new-itmp'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
+                <span className="nav-link">Új hívások listája</span>
+              </NavLink>
+              </li>
+          </ul>
+        </div>
+      </nav>
+      <Routes>
+        <Route path="/" exact element={<CustomerServiceListPage />} />
+        <Route path="/CustomerServiceSinglePage/:CallId" exact element={<CustomerServiceSinglePage />} />
+        <Route path="/CustomerServiceCreatePage" exact element={<CustomerServiceCreatePage />} />
+        <Route path="CustomerServiceModPage/:CallId" exact element={<CustomerServiceModPage />} />
+        <Route path="/CustomerServiceDelPage/:CallId" exact element={<CustomerServiceDelPage />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
