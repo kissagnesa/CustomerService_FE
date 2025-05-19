@@ -1,4 +1,9 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, NavLink, Routes, Route } from "react-router-dom";
+import { CustomerServiceListPage } from "./CustomerServiceListPage";
+import { CustomerServiceSinglePage } from "./CustomerServiceSinglePage";
+import { CustomerServiceCreatePage } from "./CustomerServiceCreatePage";
+import { CustomerServiceModPage } from "./CustomerServiceModPage";
+import { CustomerServiceDelPage } from "./CustomerServiceDelPage";
 import './App.css';
 
 function App() {
