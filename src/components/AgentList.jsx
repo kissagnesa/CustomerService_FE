@@ -26,6 +26,7 @@ export const AgentList=()=> {
                     {agents.map((agent, index) => (
 
                         <div className="card col-sm-3 d-inline-block m-1 p-2" key={index}>
+                            <p className="text-dark">Agent id: {agent.agentId}</p>  
                             <p className="text-dark">Agent name: {agent.agentName}</p>                            
                             <div className="card-body">
 
