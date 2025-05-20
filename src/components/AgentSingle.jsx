@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 
-export const CustomerServiceSinglePage =()=> {
+export const AgentSingle =()=> {
 
     const params = useParams();
     const id = params.CustomerServiceId;

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, NavLink } from 'react-router-dom';
 
-export const CustomerServiceDelPage=()=> {
+export const AgentDel=()=> {
     const params = useParams();
-    const id = params.CustomerServiceId;
+    const id = params.AgentId;
     const navigate = useNavigate();
-    const[CustomerService,setCustomerService] = useState([]);
+    const[agent,setAgent] = useState([]);
     const[isPending, setPending] = useState(false);
     useEffect(() => {
         setPending(true);
         (async () => {
             try {
-        const res= await fetch(`https://localhost:7038/swagger/index.html${id}`)
-            const CustomerServicek = await res.json();
-            setCustomerService(CustomerServicek);
+        const res= await fetch(`http://localhost:5036/Agent/DeleteAgent${id}`)
+            const agent = await res.json();
+            setAgent(agent);
         }
         catch(error) {
             console.log(error);
@@ -26,18 +26,17 @@ export const CustomerServiceDelPage=()=> {
  }, [id]);
  return (
     <div className="p-5 m-auto text-center content bg-lavender">
-        {isPending || !CustomerService.id ? (
+        {isPending || !agent.id ? (
             <div className="spinner-border"></div>
         ) : (
                         <div className="card p-3">
                             <div className="card-body">
-                            <h5 className="card-title">Törlendő elem neve: {CustomerService.name}</h5>
-                            <div className="lead">E-mail: {CustomerService.email}</div>                                                           
+                            <h5 className="card-title">Törlendő elem neve: {agent.agentName}</h5>                                                                                     
                         </div>
                               <form onSubmit={(event) => {
             event.persist();
             event.preventDefault();
-            fetch(`https://chess.sulla.hu/chess/${id}`, {
+            fetch(`http://localhost:5036/Agent/DeleteAgent${id}`, {
                 method: "DELETE",
             })
             .then(() =>

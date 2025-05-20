@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-export const CustomerServiceModPage =()=> {
+export const AgentMod =()=> {
     const params = useParams();
     const id = params.CustomerServiceId;
     const navigate = useNavigate();

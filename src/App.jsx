@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, NavLink, Routes, Route } from "react-router-dom";
-import { CustomerServiceListPage } from "./CustomerServiceListPage";
-import { CustomerServiceSinglePage } from "./CustomerServiceSinglePage";
-import { CustomerServiceCreatePage } from "./CustomerServiceCreatePage";
-import { CustomerServiceModPage } from "./CustomerServiceModPage";
-import { CustomerServiceDelPage } from "./CustomerServiceDelPage";
+import { AgentCreate } from "./components/AgentCreate";
+import { AgentMod } from "./components/AgentMod";
+import { AgentDel } from "./components/AgentDel";
+import { AgentList } from "./components/AgentList";
+import {AgentSingle} from "./components/AgentSingle";
+
 import './App.css';
 
 export const App=()=> {
@@ -14,23 +15,23 @@ export const App=()=> {
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink to={'/'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
-                <span className="nav-link">Hívások listája</span>
+                <span className="nav-link">Agents list</span>
               </NavLink>
               </li>
               <li className="nav-item">
               <NavLink to={'/new-itmp'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
-                <span className="nav-link">Új hívások listája</span>
+                <span className="nav-link">Create new agent</span>
               </NavLink>
               </li>
           </ul>
         </div>
       </nav>
       <Routes>
-        <Route path="/" exact element={<CustomerServiceListPage />} />
-        <Route path="/CustomerServiceSinglePage/:CallId" exact element={<CustomerServiceSinglePage />} />
-        <Route path="/CustomerServiceCreatePage" exact element={<CustomerServiceCreatePage />} />
-        <Route path="CustomerServiceModPage/:CallId" exact element={<CustomerServiceModPage />} />
-        <Route path="/CustomerServiceDelPage/:CallId" exact element={<CustomerServiceDelPage />} />
+        <Route path="/" exact element={<AgentList />} />
+        <Route path="/AgentSingle/:AgentId" exact element={<AgentSingle />} />
+        <Route path="/AgentCreate" exact element={<AgentCreate />} />
+        <Route path="AgentMod/:AgentId" exact element={<AgentMod />} />
+        <Route path="/AgentDel/:AgentId" exact element={<AgentDel />} />
       </Routes>
     </Router>
   );

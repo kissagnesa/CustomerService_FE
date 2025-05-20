@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const CustomerServiceListPage=()=> {
+export const AgentList=()=> {
 
-    const[calls,setCalls] = useState([]);
+    const[agents,setAgents] = useState([]);
     const[isFetchPending, setFetchPending] = useState(false);
     
     useEffect(() => {
         setFetchPending(true);
-        fetch("https://localhost:7038/swagger/index.html")
+        fetch("http://localhost:5036/Agent")
             .then((res) => res.json())
-            .then((calls) => setCalls(calls))
+            .then((agents) => setAgents(agents))
             .catch(console.log)
             .finally(() => {
                 setFetchPending(false);
@@ -22,20 +22,19 @@ export const CustomerServiceListPage=()=> {
                 <div className="spinner-border"></div>
             ) : (
                 <div>
-                    <h2>ITMP bejegyzések</h2>
-                    {calls.map((call, index) => (
+                    <h2>Agent list</h2>
+                    {agents.map((agent, index) => (
 
                         <div className="card col-sm-3 d-inline-block m-1 p-2" key={index}>
-                            <p className="text-dark">ITMP bejegyzés neve: {calls.customerName}</p>
-                            <p className="text-danger">E-mail cím {calls.agentName}</p>
+                            <p className="text-dark">Agent name: {agent.agentName}</p>                            
                             <div className="card-body">
 
                                 <br />
-                                <NavLink key="x" to={"/itmp/" + calls.id}>
+                                <NavLink key="x" to={"/itmp/" + agents.id}>
                                     <i className="bi bi-eye"></i></NavLink> &nbsp;&nbsp;
-                                <NavLink key="x" to={"/mod-itmp/" + calls.id}>
+                                <NavLink key="x" to={"/mod-itmp/" + agents.id}>
                                     <i className="bi bi-pencil"></i></NavLink> &nbsp;&nbsp;
-                                    <NavLink key="y" to={"/del-chess/" + calls.id}><i className="bi bi-trash3"></i></NavLink>
+                                    <NavLink key="y" to={"/del-chess/" + agents.id}><i className="bi bi-trash3"></i></NavLink>
                             </div>
                         </div>
 
