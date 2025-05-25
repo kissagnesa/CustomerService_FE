@@ -16,7 +16,7 @@ export const App=()=> {
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink to={'/'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
-                <span className="nav-link">Agents list</span>
+                <span className="nav-link">Agent list</span>
               </NavLink>
               </li>
                <li className="nav-item">
@@ -24,11 +24,7 @@ export const App=()=> {
                 <span className="nav-link">Call list</span>
               </NavLink>
               </li>
-              <li className="nav-item">
-              <NavLink to={'/new-itmp'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
-                <span className="nav-link">Create new agent</span>
-              </NavLink>
-              </li>
+
           </ul>
         </div>
       </nav>

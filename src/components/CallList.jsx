@@ -31,11 +31,11 @@ export const CallList=()=> {
                             <div className="card-body">
 
                                 <br />
-                                <NavLink key="x" to={"/itmp/" + calls.id}>
+                                <NavLink key="x" to={"/calllist/" + call.id}>
                                     <i className="bi bi-eye"></i></NavLink> &nbsp;&nbsp;
-                                <NavLink key="x" to={"/mod-itmp/" + calls.id}>
+                                <NavLink key="x" to={"/calllist/" + call.id}>
                                     <i className="bi bi-pencil"></i></NavLink> &nbsp;&nbsp;
-                                    <NavLink key="y" to={"/del-chess/" + calls.id}><i className="bi bi-trash3"></i></NavLink>
+                                    <NavLink key="y" to={"/calllist/" + call.id}><i className="bi bi-trash3"></i></NavLink>
                             </div>
                         </div>
 
