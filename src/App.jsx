@@ -4,6 +4,7 @@ import { AgentMod } from "./components/AgentMod";
 import { AgentDel } from "./components/AgentDel";
 import { AgentList } from "./components/AgentList";
 import {AgentSingle} from "./components/AgentSingle";
+import {CallList} from "./components/CallList";
 
 import './App.css';
 
@@ -16,6 +17,11 @@ export const App=()=> {
             <li className="nav-item">
               <NavLink to={'/'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
                 <span className="nav-link">Agents list</span>
+              </NavLink>
+              </li>
+               <li className="nav-item">
+              <NavLink to={'/'} className={({isActive}) => "nav-link" + (isActive ? "active" : "")}>
+                <span className="nav-link">Call list</span>
               </NavLink>
               </li>
               <li className="nav-item">
@@ -32,6 +38,7 @@ export const App=()=> {
         <Route path="/AgentCreate" exact element={<AgentCreate />} />
         <Route path="AgentMod/:AgentId" exact element={<AgentMod />} />
         <Route path="/AgentDel/:AgentId" exact element={<AgentDel />} />
+        <Route path="/CallList" exact element={<CallList />} />
       </Routes>
     </Router>
   );
